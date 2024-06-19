@@ -1,0 +1,51 @@
+<html>
+   <head>
+      <title>Show Payment Page</title>
+	  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+	 
+ <script type="application/javascript" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/NSEAca36952692078973.js" onload="onScriptLoad();" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <center>
+         <h1>Please do not refresh this page...</h1>
+      </center>     
+	  <script>
+function onScriptLoad(){
+var config = {
+"root": "",
+"flow": "PAYMENT",
+"data": {
+"orderId": "ORDERID_05", /* update order id */
+"token": "d75bf8d76e9749319d9c8cf94bce27451718789788472", /* update token value */
+"tokenType": "TXN_TOKEN",
+"amount": "1.00" /* update amount */
+},
+"handler": {
+"notifyMerchant": function(eventName,data){
+console.log("notifyMerchant handler function called");
+console.log("eventName => ",eventName);
+console.log("data => ",data);
+}
+}
+};
+if(window.Paytm && window.Paytm.CheckoutJS){
+window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+// initialze configuration using init method
+window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+handler:{
+    transactionStatus:function transactionStatus(paymentStatus){
+      console.log("paymentStatus => ",paymentStatus);              
+    } 
+  }
+// after successfully updating configuration, invoke JS Checkout
+window.Paytm.CheckoutJS.invoke();
+}).catch(function onError(error){
+console.log("error => ",error);
+});
+});
+}
+}
+window.onload = onScriptLoad;
+</script>
+   </body>
+</html>
