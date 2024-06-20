@@ -15,10 +15,11 @@ var config = {
 "root": "",
 "flow": "PAYMENT",
 "data": {
-"orderId": "ORDERID_06", /* update order id */
-"token": "e804e31d1bf94dc3b82dc66ac20ea37d1718806797651", /* update token value */
+"orderId": "ORDERID_07", /* update order id */
+"token": "40d011d7a488402b91aee075a1aac5e61718860697819", /* update token value */
 "tokenType": "TXN_TOKEN",
-"amount": "1.00" /* update amount */
+"amount": "1.00" ,/* update amount */
+"redirect": "false"
 },
 "handler": {
 "notifyMerchant": function(eventName,data){
@@ -45,7 +46,6 @@ console.log("error => ",error);
 });
 }
 }
-window.onload = onScriptLoad;
 </script>
    </body>
 </html>
