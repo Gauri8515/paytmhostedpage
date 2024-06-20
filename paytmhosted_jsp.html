@@ -15,8 +15,8 @@ var config = {
 "root": "",
 "flow": "PAYMENT",
 "data": {
-"orderId": "ORDERID_10", /* update order id */
-"token": "25299311172f4a5dba905eebb925cdc11718862451960", /* update token value */
+"orderId": "ORDERID_11", /* update order id */
+"token": "fe7a4584658149e9b9ea386d5482374f1718868615623", /* update token value */
 "tokenType": "TXN_TOKEN",
 "amount": "1.00" /* update amount */
 },
@@ -32,9 +32,6 @@ if(window.Paytm && window.Paytm.CheckoutJS){
 window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
 // initialze configuration using init method
 window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
-merchant:{
-    redirect: false
-  },
 handler:{
     transactionStatus:function transactionStatus(paymentStatus){
       console.log("paymentStatus => ",paymentStatus);              
